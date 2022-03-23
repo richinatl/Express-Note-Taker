@@ -14,32 +14,31 @@ currentID = notes.length;
 app.get("/api/notes", (req, res) => res.json(notes));
 
 app.post("/api/notes", ({ body }, res) => {
-  const newTask = body;
+  const newNote = body;
 
-  newTask["id"] = currentID + 1;
+  newNote["id"] = currentID + 1;
   currentID++;
-  console.log(newTask);
+  console.log(newNote);
 
-  notes.push(newTask);
+  notes.push(newNote);
 
-  rewriteTasks();
+  rewriteNotes();
 
   return res.status(200).end();
 });
 
-app.delete("/api/notes/:id", ({ params }, res) => {
-  res.send("DELETE request at /api/notes/:id");
-
-  const id = params.id;
-
-  const idLess = notes.filter((less) => less.id < id);
-
-  const idMore = notes.filter((more) => more.id > id);
-
-  notes = idLess.concat(idMore);
-
-  rewriteTasks();
+app.delete("/api/notes/:id", function (req, res) {
+  notes.splice(req.params.id, 1);
+  updateDb();
+  console.log("Deleted id " + req.params.id);
 });
+
+function updateDb() {
+  fs.writeFile("db/db.json", JSON.stringify(notes, "\t"), (err) => {
+    if (err) throw err;
+    return;
+  });
+}
 
 app.use(express.static("public"));
 
@@ -55,7 +54,7 @@ app.listen(PORT, () => {
   console.log(`Listening on PORT ${PORT}`);
 });
 
-function rewriteTasks() {
+function rewriteNotes() {
   fs.writeFile("db/db.json", JSON.stringify(notes), (err) => {
     if (err) {
       console.log("Error");
