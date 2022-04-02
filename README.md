@@ -2,7 +2,6 @@
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-![noteTaker1](https://user-images.githubusercontent.com/95508564/161389867-6b8a4a1c-e1cf-4091-a84b-adb4627446c6.png)
 
 
 ## Table of Contents
@@ -11,7 +10,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Licenses](#licenses)
-- [Contributors](#contributors)
+- [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
 - [Credits](#credits)
@@ -20,9 +19,11 @@
 
 An application using node express to help you keep up with tasks when you have a busy schedule
 
+![noteTaker1](https://user-images.githubusercontent.com/95508564/161389867-6b8a4a1c-e1cf-4091-a84b-adb4627446c6.png)
+
 ## Installation
 
-You can fork and run npm i to get the dependencies and deploy it
+You can fork and run npm i to get the dependencies and deploy it on heroku or any other hosting service
 
 ## Usage
 
