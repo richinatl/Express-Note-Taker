@@ -2,6 +2,9 @@
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
+![noteTaker1](https://user-images.githubusercontent.com/95508564/161389867-6b8a4a1c-e1cf-4091-a84b-adb4627446c6.png)
+
+
 ## Table of Contents
 
 - [Description](#description)
@@ -15,27 +18,30 @@
 
 ## Description
 
-An application using node to help you keep up with tasks
+An application using node express to help you keep up with tasks when you have a busy schedule
 
 ## Installation
 
-npm i
+You can fork and run npm i to get the dependencies and deploy it
 
 ## Usage
 
-Download & install dependencies
+After the application is deployed, enter your notes and save with the icon on the top right or delete with the icon on the left         
 
 ## Licenses
 
     This project is covered under the MIT license. To learn more click the license button at the top.
 
-## Contributors
+## Contributing
 
-undefined
+There are no contributors at this time, if you'd like to feel free to contact me
 
 ## Tests
 
 NA
+
+## Languages
+HTML, JavaScript, 
 
 ## Questions
 
@@ -46,3 +52,6 @@ Have questions about this project?
 ## Credits
 
 Richard Murphy
+
+![noteTaker2](https://user-images.githubusercontent.com/95508564/161389889-14439574-87b5-4850-a70c-abec90a3b4ff.png)
+
