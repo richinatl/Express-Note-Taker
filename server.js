@@ -1,13 +1,15 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const notes = require("./db/db.json");
+let notes = require("./db/db.json");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(express.static("public"));
 
 currentID = notes.length;
 
@@ -28,9 +30,12 @@ app.post("/api/notes", ({ body }, res) => {
 });
 
 app.delete("/api/notes/:id", function (req, res) {
-  notes.splice(req.params.id, 1);
+  const filtered = notes.filter((note) => note.id !== parseInt(req.params.id));
+  notes = filtered;
+
   updateDb();
-  console.log("Deleted id " + req.params.id);
+
+  return res.status(200).end();
 });
 
 function updateDb() {
@@ -39,8 +44,6 @@ function updateDb() {
     return;
   });
 }
-
-app.use(express.static("public"));
 
 app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "public/notes.html"));
